@@ -1,0 +1,26 @@
+<html>
+  <body>
+    <h1>legacy-web</h1>
+
+    <label>
+      <input name="input" id="input" />
+    </label>
+
+    <button onclick="onClickSubmit()">submit</button>
+  </body>
+
+  <script>
+    console.log("legacy-web");
+
+    function onClickSubmit() {
+      const input = document.querySelector("input");
+      const value = input.value;
+
+      const resultElement = document.createElement("div");
+      const resultTextNode = document.createTextNode(value);
+      resultElement.appendChild(resultTextNode);
+
+      document.body.appendChild(resultElement);
+    }
+  </script>
+</html>
