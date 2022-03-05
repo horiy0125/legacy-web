@@ -2,11 +2,21 @@
   <body>
     <h1>legacy-web</h1>
 
-    <label>
-      <input name="input" id="input" />
-    </label>
+    <section>
+      <label>
+        <input name="input" id="input" />
+      </label>
+  
+      <button onclick="onClickSubmit()">submit</button>
+    </section>
 
-    <button onclick="onClickSubmit()">submit</button>
+    <section>
+      <button>send GET request</button>
+
+      <pre>
+        <code id="get-result"></code>
+      </pre>
+    </section>
   </body>
 
   <script>
@@ -21,6 +31,21 @@
       resultElement.appendChild(resultTextNode);
 
       document.body.appendChild(resultElement);
+      input.value = ""
+    }
+
+    async function onClickSendGet() {
+      const res = await fetch(
+        {
+          method: "GET",
+          url: "https://horiy-horizon.herokuapp.com/api/health_check"
+        }
+      )
+
+      const json = await res.json()
+
+      const code = document.querySelector("code")
+      code.value = JSON.stringify(json)
     }
   </script>
 </html>
