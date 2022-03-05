@@ -13,10 +13,13 @@
 
     <script>        
         async function onClickSendGet() {
-            const res = await fetch({
-                method: "GET",
-                url: "https://horiy-horizon.herokuapp.com/api/health_check"
-            })
+            const url = "https://app.k-hori.com/api/health_check"
+            const res = await fetch(
+                url,
+                {
+                    method: "GET",
+                }
+            )
 
             const json = await res.json()
 
